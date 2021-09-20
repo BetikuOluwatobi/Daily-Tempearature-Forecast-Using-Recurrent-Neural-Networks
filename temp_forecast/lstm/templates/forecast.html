@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block title %}Temperature - Forecast{% endblock %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xl-9 mx-auto position-relative">
+            <h1 class="mb-5">Daily Temperature Forecast using LSTM Recurrent Neural Networks!</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+                    <div class="col text-center mb-3">
+                        <button class="btn btn-primary btn-lg" type="submit">Predict!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</header>
+<hr/> {% if forecast %}
+<section class="text-center bg-light features-icons mt-4 mb-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col text-center">
+                <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                    <div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
+                    <h3>Temperature Prediction</h3>
+                    <p class="lead mb-0">{{ forecast }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="text-center bg-light features-icons mt-4 mb-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col text-center">
+                <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                    <div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
+                    <h3>Input Values To Generate Prediction!</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %} {% endblock %}
