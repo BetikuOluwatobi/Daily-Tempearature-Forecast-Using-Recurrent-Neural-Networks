@@ -6,10 +6,6 @@ import numpy as np
 # Create your views here.
 
 def home(request):
-  return render(request,'base.html')
-
-
-def forecast(request):
   forecast = False
   if request.method == "POST":
     form = ForecastForm(request.POST)

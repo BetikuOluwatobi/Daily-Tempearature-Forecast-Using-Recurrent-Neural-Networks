@@ -18,6 +18,5 @@ from . import views
 
 app_name = 'lstm'
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('forecast/', views.forecast, name='forecast')
+    path('', views.home, name='home')
 ]
