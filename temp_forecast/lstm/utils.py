@@ -5,7 +5,7 @@ class RecurrentNetworks():
 
     def __init__(self,window_size):
         self.path_to_artifacts = "../research/"
-        self.model = tf.keras.models.load_model(path_to_artifacts + "hourly_lstm_weights_epochs_23")
+        self.model = tf.keras.models.load_model(self.path_to_artifacts + "hourly_lstm_weights_epochs_23")
         self.window_size = window_size
 
     def model_forecast(self, series):

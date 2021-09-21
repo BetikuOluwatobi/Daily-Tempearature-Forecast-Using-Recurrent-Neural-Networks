@@ -13,7 +13,6 @@ def home(request):
       data = list(form.cleaned_data.values())
       model = RecurrentNetworks(0)
       forecast = model.model_forecast(data)
-      print(forecast)
   else:
     form = ForecastForm()
 
