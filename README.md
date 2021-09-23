@@ -21,6 +21,8 @@ cd temp_forecast
 
 ## Install all dependencies for this project
 pip install django
+
+### Make sure your system supports tensorflow or else you will get an error.
 pip install tensorflow
 
 ## Check if there are no errors
