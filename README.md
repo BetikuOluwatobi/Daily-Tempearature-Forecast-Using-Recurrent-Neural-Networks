@@ -1,22 +1,32 @@
 # Daily-Tempearature-Forecast-Using-Recurrent-Neural-Networks
 Daily Temperature Forecast 
 
-Open your command prompt #search for command prompt from the search bar
+## search for command prompt from the search bar
+Open your command prompt 
 
-python3 -m venv lstm_project #create a virtual environment for the project
+## Create a virtual environment for the project
+python3 -m venv lstm_project
 
-lstm_project\Scripts\activate #activate virtual environment
+## Activate virtual environment
+lstm_project\Scripts\activate
 
-git clone https://github.com/BetikuOluwatobi/Daily-Tempearature-Forecast-Using-Recurrent-Neural-Networks.git #paste the code in the opened command prompt
+## Paste the code in the opened command prompt
+git clone https://github.com/BetikuOluwatobi/Daily-Tempearature-Forecast-Using-Recurrent-Neural-Networks.git 
 
-cd Daily-Tempearature-Forecast-Using-Recurrent-Neural-Networks #Move into the project directory
+## Move into the project directory
+cd Daily-Tempearature-Forecast-Using-Recurrent-Neural-Networks
 
-cd temp_forecast #move into django project directory
+## move into django project directory
+cd temp_forecast
 
-pip install -r requirements.txt #Install all dependencies for this project
+## Install all dependencies for this project
+pip install django
+pip install tensorflow
 
-python manage.py check #check if there are no errors
+## Check if there are no errors
+python manage.py check 
 
-python manage.py runserver #copy the output and paste in browser to open application
+## Copy the output and paste in browser to open application
+python manage.py runserver
 
 
