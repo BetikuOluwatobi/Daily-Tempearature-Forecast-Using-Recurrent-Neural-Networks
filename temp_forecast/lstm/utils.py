@@ -1,12 +1,18 @@
 import tensorflow as tf
+from tensorflow.keras.models import model_from_json
 import numpy as np
 import os
 
 class RecurrentNetworks():
 
     def __init__(self,path,window_size):
-        self.model_path = os.path.join(path, 'hourly_lstm_weights_epochs_23')
-        self.model = tf.keras.models.load_model(self.model_path)
+        self.json_file = open(os.path.join(path, 'model.json'),'r')
+        self.model_h5 = os.path.join(path, 'model.h5')
+        self.model_json = json_file.read()
+        self.json_file.close()
+        self.model = model_from_json(self.model_json)
+        # load weights into new model
+        self.model.load_weights(self.model_h5)
         self.window_size = window_size
 
     def model_forecast(self, series):
