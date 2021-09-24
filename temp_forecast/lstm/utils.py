@@ -1,18 +1,12 @@
 import tensorflow as tf
-from tensorflow.keras.models import model_from_json
+from .apps import LstmConfig
 import numpy as np
 import os
 
 class RecurrentNetworks():
 
-    def __init__(self,path,window_size):
-        self.json_file = open(os.path.join(path, 'model.json'),'r')
-        self.model_h5 = os.path.join(path, 'model.h5')
-        self.model_json = json_file.read()
-        self.json_file.close()
-        self.model = model_from_json(self.model_json)
-        # load weights into new model
-        self.model.load_weights(self.model_h5)
+    def __init__(self,window_size):
+        self.model = LstmConfig.model
         self.window_size = window_size
 
     def model_forecast(self, series):
