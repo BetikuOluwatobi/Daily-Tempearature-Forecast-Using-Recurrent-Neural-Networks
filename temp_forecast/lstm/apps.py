@@ -25,7 +25,7 @@ class LstmConfig(AppConfig):
 
     model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer,metrics=[tf.keras.metrics.RootMeanSquaredError()])
 
-    model_h5 = os.path.join(settings.ARTIFACTS, 'model.h5')
+    model_h5 = os.path.join(settings.STATICFILES_DIR, 'model.h5')
     # load weights into new model
     model.load_weights(model_h5)
 
