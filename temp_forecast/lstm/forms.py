@@ -10,4 +10,4 @@ class ForecastForm(forms.Form):
   stn_press = forms.FloatField(label='Stn Press (kPa)',max_value=10000, min_value=0,widget=forms.NumberInput(attrs={'class': 'form-control','id': "formGroupExampleInput",'placeholder':'Enter your Stn Pressure...'}))
 
 class UploadFileForm(forms.Form):
-  upload_file = forms.FileField(widget=forms.ClearableFileInput(attrs={'class':"form-control",type:"file",'id':"inputGroupFile01"}))
+  upload_file = forms.FileField(widget=forms.ClearableFileInput(attrs={'class':"form-control",'id':"inputGroupFile01"}))
