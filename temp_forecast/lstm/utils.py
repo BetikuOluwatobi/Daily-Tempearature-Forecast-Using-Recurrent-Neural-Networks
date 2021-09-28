@@ -1,5 +1,6 @@
 import tensorflow as tf
 from .apps import LstmConfig
+from django.conf import settings
 import numpy as np
 import os
 
@@ -17,3 +18,27 @@ class RecurrentNetworks():
         ds = ds.batch(32).prefetch(1)
         forecast = self.model.predict(ds)[0][0]
         return forecast
+
+    def process_data(self,df):
+        df['Date/Time'] = pd.to_datetime(df['Date/Time'])
+        cols = ['Month','Day','Dew Point Temp (°C)','Rel Hum (%)','Wind Spd (km/h)','Stn Press (kPa)']
+        df = df.sort_values(by='Date/Time',ignore_index=True)
+        dates = df['Date/Time']
+        series = df[cols].values[:]
+        return series[..., np.newaxis], dates[1:]
+
+    def model_multi_forecast(self, series):
+        ds = tf.data.Dataset.from_tensor_slices(series)
+        ds = ds.window(window_size + 1, shift=1, drop_remainder=True)
+        ds = ds.flat_map(lambda w: w.batch(window_size + 1))
+        ds = ds.batch(32).prefetch(1)
+        forecast = model.predict(ds)
+        rnn_forecast = forecast[:,0]
+        return rnn_forecast
+
+def handle_uploaded_file(f):
+    with open(os.path.join(settings.STATICFILES_DIR, 'file.csv'), 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+
+

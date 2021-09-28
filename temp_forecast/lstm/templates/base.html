@@ -15,10 +15,10 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
-        <div class="container"><a class="navbar-brand" href="#">Bi-Directonal LSTM</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
+        <div class="container"><a class="navbar-brand" href="{% url 'lstm:home' %}">Bi-Directonal LSTM</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
         </div>
     </nav>
-    <header class="text-center text-white masthead" style="background:url('https://cdn.pixabay.com/photo/2020/09/01/21/03/sunset-5536777_960_720.jpg')no-repeat center center;background-size:cover;">
+    <header class="text-center text-white masthead" style={% block extraimg %} "background:url('https://cdn.pixabay.com/photo/2020/09/01/21/03/sunset-5536777_960_720.jpg')no-repeat center center;background-size:cover;"{% endblock %}>
         <div class="overlay"></div>
         {% block content %}{% endblock %}
     </header>

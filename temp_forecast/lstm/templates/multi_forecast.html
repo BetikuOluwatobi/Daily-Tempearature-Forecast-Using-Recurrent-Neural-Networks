@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block title %}Temperature - Forecast{% endblock %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xl-9 mx-auto position-relative">
+            <h1 class="mb-5">Daily Temperature Forecast using LSTM Recurrent Neural Networks!</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-group mb-3">
+                        <div class="col text-center mb-3">
+                            {{ form.as_p }}
+                        </div>
+                    </div>
+                    <div class="col text-center mb-3">
+                        <button class="btn btn-primary btn-lg" type="submit">Predict!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</header>
+<hr/> {% if forecast %}
+<section class="text-center bg-light features-icons mt-4 mb-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col text-center">
+                <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                    <div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
+                    <h3>Download Your Predictions</h3>
+                    <div class="col text-center mt-3">
+                        <a href="{% url 'lstm:download' %}"><button class="btn btn-primary btn-lg" type="submit">Download!</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="text-center bg-light features-icons mt-4 mb-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col text-center">
+                <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                    <div class="d-flex features-icons-icon"><i class="icon-screen-desktop m-auto text-primary" data-bss-hover-animate="pulse"></i></div>
+                    <ul class="list-group">
+                        <h3>File Format To Be Uploaded</h3>
+                        <li class="list-group-item"><strong>Columns: </strong> "Date/Time","Month","Day","Dew Point Temp (°C)","Stn Press (kPa)","Wind Spd (km/h)","Rel Hum (%)"</li>
+                        <li class="list-group-item">Has No Missing Value </li>
+                        <li class="list-group-item">All columns data type must be integer/float except Date/Time </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %} {% endblock %}
