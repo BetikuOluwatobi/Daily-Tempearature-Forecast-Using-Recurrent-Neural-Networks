@@ -30,9 +30,9 @@ def multiforecast(request):
         data_path = os.path.join(settings.STATICFILES_DIR, 'file.csv')
         data =  pd.read_csv(data_path)
         model = RecurrentNetworks(0)
-        series,dates = model.process_data(data)
+        series = model.process_data(data)
         forecast = model.model_multi_forecast(series)
-        df = pd.concat([dates,pd.Series(forecast,name='Temp')],axis=1)
+        df = pd.Series(forecast,name='Temp')]
         df.to_csv(os.path.join(settings.STATICFILES_DIR, 'download.csv'))
   else:
       form = UploadFileForm()

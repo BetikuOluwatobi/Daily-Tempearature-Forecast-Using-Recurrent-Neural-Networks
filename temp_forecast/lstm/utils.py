@@ -2,6 +2,7 @@ import tensorflow as tf
 from .apps import LstmConfig
 from django.conf import settings
 import numpy as np
+import pandas as pd
 import os
 
 class RecurrentNetworks():
@@ -23,16 +24,15 @@ class RecurrentNetworks():
         df['Date/Time'] = pd.to_datetime(df['Date/Time'])
         cols = ['Month','Day','Dew Point Temp (°C)','Rel Hum (%)','Wind Spd (km/h)','Stn Press (kPa)']
         df = df.sort_values(by='Date/Time',ignore_index=True)
-        dates = df['Date/Time']
         series = df[cols].values[:]
-        return series[..., np.newaxis], dates[1:]
+        return series[..., np.newaxis]
 
     def model_multi_forecast(self, series):
         ds = tf.data.Dataset.from_tensor_slices(series)
-        ds = ds.window(window_size + 1, shift=1, drop_remainder=True)
-        ds = ds.flat_map(lambda w: w.batch(window_size + 1))
+        ds = ds.window(self.window_size + 1, shift=1, drop_remainder=True)
+        ds = ds.flat_map(lambda w: w.batch(self.window_size + 1))
         ds = ds.batch(32).prefetch(1)
-        forecast = model.predict(ds)
+        forecast = self.model.predict(ds)
         rnn_forecast = forecast[:,0]
         return rnn_forecast
 
