@@ -37,7 +37,7 @@ class RecurrentNetworks():
         return rnn_forecast
 
 def handle_uploaded_file(f):
-    with open(os.path.join(settings.STATICFILES_DIR, 'file.csv'), 'wb+') as destination:
+    with open(os.path.join(os.path.dirname(__file__), 'file.csv'), 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
 

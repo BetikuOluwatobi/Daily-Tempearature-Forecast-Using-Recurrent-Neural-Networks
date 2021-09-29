@@ -6,13 +6,12 @@ import numpy as np
 import pandas as pd
 import os
 from .utils import handle_uploaded_file
-from django.conf import settings
 from django.http import HttpResponse, Http404
 
 # Create your views here.
 
 def download(request):
-    file_path = os.path.join(settings.STATICFILES_DIR, 'download.csv')
+    file_path = os.path.join(os.path.dirname(__file__), 'download.csv')
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
@@ -27,14 +26,14 @@ def multiforecast(request):
       form = UploadFileForm(request.POST, request.FILES)
       if form.is_valid():
         handle_uploaded_file(request.FILES.get('upload_file'))
-        data_path = os.path.join(settings.STATICFILES_DIR, 'file.csv')
+        data_path = os.path.join(os.path.dirname(__file__), 'file.csv')
         data =  pd.read_csv(data_path)
         model = RecurrentNetworks(0)
         series = model.process_data(data)
         result = model.model_multi_forecast(series)
         forecast = True
         df = pd.Series(result,name='Temp')
-        df.to_csv(os.path.join(settings.STATICFILES_DIR, 'download.csv'))
+        df.to_csv(os.path.join(os.path.dirname(__file__), 'download.csv'))
   else:
       form = UploadFileForm()
   return render(request, 'multi_forecast.html', {'form': form,'forecast':forecast})
