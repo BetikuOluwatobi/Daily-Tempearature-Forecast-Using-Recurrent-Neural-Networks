@@ -32,7 +32,7 @@ def multiforecast(request):
         model = RecurrentNetworks(0)
         series = model.process_data(data)
         forecast = model.model_multi_forecast(series)
-        df = pd.Series(forecast,name='Temp')]
+        df = pd.Series(forecast,name='Temp')
         df.to_csv(os.path.join(settings.STATICFILES_DIR, 'download.csv'))
   else:
       form = UploadFileForm()
