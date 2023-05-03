@@ -1,5 +1,5 @@
 # Daily Temperature Forecasting Using Recurrent Neural Networks
-## Introduction
+**Introduction**
 Daily temperature forecasting using recurrent neural networks (RNNs) is a popular application of deep learning in weather forecasting. RNNs are particularly well-suited to this task because they can model the temporal dependencies between past and future weather conditions.
 
 ## Steps
