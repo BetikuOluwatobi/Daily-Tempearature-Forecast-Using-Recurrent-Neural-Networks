@@ -111,12 +111,43 @@ This will start the Django development server, and you can access the project by
 
 Congratulations! You have successfully run the Daily Temperature Forecasting project on your local machine.
 
+## Running a Docker Container for Daily Temperature Forecast Using Recurrent Neural Networks
+
+This is a guide on how to run a Docker container for the daily temperature forecast using recurrent neural networks project. This Docker container is preconfigured with all the necessary dependencies to run the project.
+
+### Prerequisites
+
+Before running the Docker container, you need to have Docker installed on your system. You can download and install Docker from [here](https://www.docker.com/products/docker-desktop).
+
+## Steps to Run the Docker Container
+
+1. Open your terminal or command prompt.
+2. Navigate to the directory where the Dockerfile is located.
+3. Build the Docker image by running the following command:
+
+```
+docker build -t daily_temp_forecast .
+```
+
+4. Once the image is built, you can run the Docker container using the following command:
+
+```
+docker run -p 8000:8000 daily_temp_forecast
+```
+
+This command will start the container and map port 8000 of the container to port 8000 of your system.
+
+5. Open your web browser and go to http://localhost:8000 to access the application.
+
+That's it! You now have the daily temperature forecast using recurrent neural networks project up and running inside a Docker container.
+
+## Troubleshooting
+
+- If you get an error that Docker is not installed, please download and install Docker from [here](https://www.docker.com/products/docker-desktop).
+- If you get an error that the Docker daemon is not running, start Docker on your system before proceeding.
+- If you get an error that the port is already in use, you may need to choose a different port to map to the container. You can do this by modifying the `-p` flag in the `docker run` command.
+
 
 
 # Conclusion
 In summary, this project developed a daily temperature forecasting model using recurrent neural networks, which involved data collection, preprocessing, model selection, training, evaluation, prediction, and refinement. With further refinement, this model could potentially be used in real-world weather forecasting applications.
-
-
-
-
-
