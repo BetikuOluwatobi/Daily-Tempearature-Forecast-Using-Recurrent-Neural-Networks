@@ -5,7 +5,7 @@ Daily temperature forecasting using recurrent neural networks (RNNs) is a popula
 ## Steps
 Here are the steps involved in the development of the daily temperature forecasting model using RNN:
 
-* <strong>Data Collection<strong/>: Historical weather data was collected from 2015-2019, including daily temperature readings and other relevant variables such as humidity, wind speed, dew point, and relative humidity.
+* <strong>Data Collection<strong>: Historical weather data was collected from 2015-2019, including daily temperature readings and other relevant variables such as humidity, wind speed, dew point, and relative humidity.
 
 * Data Preprocessing: The collected data was cleaned and preprocessed, including a function to load the dataset from Google Drive, merging the chunks of data into a larger DataFrame, converting the date/time column to a Python datetime data type, sorting rows by the date/time column, handling missing values, scaling the data, and splitting it into training and test sets.
 
