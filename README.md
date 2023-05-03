@@ -1,23 +1,23 @@
-#Daily Temperature Forecasting Using Recurrent Neural Networks
-##Introduction
+# Daily Temperature Forecasting Using Recurrent Neural Networks
+## Introduction
 Daily temperature forecasting using recurrent neural networks (RNNs) is a popular application of deep learning in weather forecasting. RNNs are particularly well-suited to this task because they can model the temporal dependencies between past and future weather conditions.
 
-##Steps
+## Steps
 Here are the steps involved in the development of the daily temperature forecasting model using RNN:
 
-* ###Data Collection: Historical weather data was collected from 2015-2019, including daily temperature readings and other relevant variables such as humidity, wind speed, dew point, and relative humidity.
+### * Data Collection: Historical weather data was collected from 2015-2019, including daily temperature readings and other relevant variables such as humidity, wind speed, dew point, and relative humidity.
 
-* ###Data Preprocessing: The collected data was cleaned and preprocessed, including a function to load the dataset from Google Drive, merging the chunks of data into a larger DataFrame, converting the date/time column to a Python datetime data type, sorting rows by the date/time column, handling missing values, scaling the data, and splitting it into training and test sets.
+### * Data Preprocessing: The collected data was cleaned and preprocessed, including a function to load the dataset from Google Drive, merging the chunks of data into a larger DataFrame, converting the date/time column to a Python datetime data type, sorting rows by the date/time column, handling missing values, scaling the data, and splitting it into training and test sets.
 
-* ###Model Selection: A suitable RNN architecture (long short-term memory (LSTM)) was selected, and the hyperparameters of the model were configured. Other models such as Gated Recurrent Unit (GRU) were also experimented with, but LSTM was found to work best.
+### * Model Selection: A suitable RNN architecture (long short-term memory (LSTM)) was selected, and the hyperparameters of the model were configured. Other models such as Gated Recurrent Unit (GRU) were also experimented with, but LSTM was found to work best.
 
-* ###Model Training: The RNN model was trained using the training set, adjusting the weights of the neural network to minimize the loss function.
+### * Model Training: The RNN model was trained using the training set, adjusting the weights of the neural network to minimize the loss function.
 
-* ###Model Evaluation: The performance of the trained model was evaluated on the test set using the root mean squared error (RMSE) metric.
+### * Model Evaluation: The performance of the trained model was evaluated on the test set using the root mean squared error (RMSE) metric.
 
-* ###Model Prediction: The trained model was used to predict the daily temperature for future days.
+### * Model Prediction: The trained model was used to predict the daily temperature for future days.
 
-* ###Model Refinement: The model was refined by adjusting the hyperparameters, changing the architecture, or collecting more data, and the training and evaluation process was repeated.
+### * Model Refinement: The model was refined by adjusting the hyperparameters, changing the architecture, or collecting more data, and the training and evaluation process was repeated.
 
 # Conclusion
 In summary, this project developed a daily temperature forecasting model using recurrent neural networks, which involved data collection, preprocessing, model selection, training, evaluation, prediction, and refinement. With further refinement, this model could potentially be used in real-world weather forecasting applications.
