@@ -25,7 +25,7 @@ class RecurrentNetworks():
         cols = ['Month','Day','Dew Point Temp (°C)','Rel Hum (%)','Wind Spd (km/h)','Stn Press (kPa)']
         df = df.sort_values(by='Date/Time',ignore_index=True)
         series = df[cols].values[:]
-        return series[..., np.newaxis]
+        return series
 
     def model_multi_forecast(self, series):
         ds = tf.data.Dataset.from_tensor_slices(series)
