@@ -70,6 +70,13 @@ Here are the steps involved in the development of the daily temperature forecast
    ```
 
    Navigate to "http://localhost:8000/" in a web browser to access the application.
+   
+## Demo Video
+
+[![Demo Video](https://img.youtube.com/vi/pbhYdW_PWCI/0.jpg)](https://www.youtube.com/watch?v=pbhYdW_PWCI)
+
+[![Demo Video](https://img.youtube.com/vi/LrIdx3IGUy8/0.jpg)](https://www.youtube.com/watch?v=LrIdx3IGUy8)
+
 
 ## Conclusion
 
